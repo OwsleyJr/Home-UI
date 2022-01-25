@@ -67,4 +67,4 @@ $ yarn dev
 
 - `pages/index.tsx` This is where your "dashboard" should go. The user will be redirected to this route after succesful authentication.
 
-- `pages/auth/index.tsx` This is where the user will find a Home Assistant instance and authenticate.
+- `pages/auth/index.tsx` This is where the user will find a Home Assistant instance and authenticate.# hass-frontend
