@@ -1,8 +1,9 @@
-import { 
-  Connection, 
-  HassConfig, 
-  HassEntities, 
-  HassServices 
+import {
+  Connection,
+  HassConfig,
+  HassEntities,
+  HassServices,
+  // callService,
 } from "home-assistant-js-websocket";
 import create from "zustand";
 
@@ -11,14 +12,14 @@ interface HassStore {
   entities: HassEntities;
   services: HassServices;
   config: Partial<HassConfig>;
+  // callService: typeof callService;
 }
 
-const useHassStore = create<HassStore>(
-  () => ({
-    entities: {},
-    services: {},
-    config: {},
-  })
-);
+const useHassStore = create<HassStore>(() => ({
+  entities: {},
+  services: {},
+  config: {},
+  // callService,
+}));
 
 export default useHassStore;

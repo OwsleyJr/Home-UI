@@ -1,26 +1,16 @@
-import React, { useEffect, useRef } from 'react';
-import Fuse from 'fuse.js';
-import SearchContext from '../contexts/SearchContext';
-import useHass from '../hooks/useHass';
+import React, { useEffect, useRef } from "react";
+import Fuse from "fuse.js";
+import SearchContext from "../contexts/SearchContext";
+import useHass from "../hooks/useHass";
 
-const SearchProvider: React.FunctionComponent = ({
-  children,
-}) => {
-  const {
-    entities,
-  } = useHass();
+const SearchProvider: React.FunctionComponent = ({ children }) => {
+  const { entities } = useHass();
 
   const fuse = useRef<Fuse<any> | undefined>(
-    new Fuse(
-      [], 
-      {
-        keys: [
-          'entity_id', 
-          'friendly_name'
-        ],
-        threshold: 0.2,
-      }
-    )
+    new Fuse([], {
+      keys: ["entity_id", "friendly_name"],
+      threshold: 0.2,
+    })
   );
 
   useEffect(() => {
@@ -31,15 +21,14 @@ const SearchProvider: React.FunctionComponent = ({
           friendly_name,
         })
       )
-    )
+    );
   }, [entities]);
 
   return (
     <SearchContext.Provider value={fuse.current}>
-      { children }
+      {children}
     </SearchContext.Provider>
-  )
-
-}
+  );
+};
 
 export default SearchProvider;

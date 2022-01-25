@@ -1,5 +1,3 @@
-const APP_NAME = 'app-name';
+const APP_NAME = "hass-home";
 
-export {
-  APP_NAME,
-}
+export { APP_NAME };
